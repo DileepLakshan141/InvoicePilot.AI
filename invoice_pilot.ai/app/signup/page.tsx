@@ -38,7 +38,7 @@ const SignupPage = () => {
   const handleSubmission = async (values: z.infer<typeof UserSchema>) => {
     const results = await create_new_user(values);
     if (results.status === "error") {
-      toast.error(toast.message.toString());
+      toast.error(results.message);
     } else {
       toast.success(results.message);
       signupForm.reset();
