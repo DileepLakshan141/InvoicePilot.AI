@@ -21,8 +21,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { LoginSchema } from "@/schema/user";
+import { login_user } from "@/functions/auth";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const SigninPage = () => {
+  const router = useRouter();
   const loginForm = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -30,6 +34,16 @@ const SigninPage = () => {
       password: "",
     },
   });
+
+  const handleLoginSubmission = async (values: z.infer<typeof LoginSchema>) => {
+    const result = await login_user(values);
+    if (result.status === "success") {
+      toast.success(result.message);
+      router.replace("/dashboard/main");
+    } else {
+      toast.error(result.message);
+    }
+  };
 
   return (
     <div className="w-full h-screen relative flex justify-center items-center">
@@ -52,10 +66,11 @@ const SigninPage = () => {
             invoices, and stay on top of your payments with ease.
           </CardDescription>
           <Form {...loginForm}>
-            <form>
+            <form onSubmit={loginForm.handleSubmit(handleLoginSubmission)}>
               <div className="mt-4">
                 <FormField
                   name="email"
+                  control={loginForm.control}
                   render={({ field }) => {
                     return (
                       <FormItem>
@@ -64,7 +79,7 @@ const SigninPage = () => {
                           <Input
                             type="email"
                             {...field}
-                            placeholder="Enter your email"
+                            placeholder="Enter your email address"
                           />
                         </FormControl>
                         <FormMessage />
@@ -77,6 +92,7 @@ const SigninPage = () => {
               <div className="mt-4">
                 <FormField
                   name="password"
+                  control={loginForm.control}
                   render={({ field }) => {
                     return (
                       <FormItem>
@@ -88,6 +104,7 @@ const SigninPage = () => {
                             {...field}
                           />
                         </FormControl>
+                        <FormMessage />
                       </FormItem>
                     );
                   }}
@@ -105,7 +122,7 @@ const SigninPage = () => {
           </Form>
           <CardFooter className="mt-6 flex flex-col justify-center text-gray-500 text-sm">
             <p>
-              Dont't have an account yet?{" "}
+              Do not have an account yet?{" "}
               <Link className="font-semibold underline" href="/signup">
                 Signup
               </Link>{" "}

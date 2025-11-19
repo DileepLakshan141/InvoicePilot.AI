@@ -17,5 +17,5 @@ export const UserSchema = z
 
 export const LoginSchema = z.object({
   email: z.email(),
-  password: z.string(),
+  password: z.string().min(8, "Invalid password"),
 });
