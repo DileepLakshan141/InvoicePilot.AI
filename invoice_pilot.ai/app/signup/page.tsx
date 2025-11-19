@@ -153,9 +153,7 @@ const SignupPage = () => {
                   }}
                 />
               </div>
-              <Button className="w-full mt-8 text-[17px]">
-                Create Account
-              </Button>
+              <Button className="w-full mt-8 text-[17px]">Signup</Button>
               <Button
                 onClick={() => signupForm.reset()}
                 className="w-full mt-3 text-[17px]"
@@ -165,7 +163,7 @@ const SignupPage = () => {
               </Button>
             </form>
           </Form>
-          <CardFooter className="mt-6 flex flex-col justify-center text-gray-500">
+          <CardFooter className="mt-6 flex flex-col justify-center text-gray-500 text-sm">
             <p>
               Already have an account?{" "}
               <Link className="font-semibold underline" href="/signin">

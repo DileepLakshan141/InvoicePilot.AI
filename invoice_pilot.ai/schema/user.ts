@@ -14,3 +14,8 @@ export const UserSchema = z
     message: "passwords can not be mismatched",
     path: ["confirm_password"],
   });
+
+export const LoginSchema = z.object({
+  email: z.email(),
+  password: z.string(),
+});
