@@ -9,12 +9,21 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarFooter,
+  SidebarMenuSubItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
 } from "@/components/ui/sidebar";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { items, company_data } from "./data";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import NavUserActions from "../_nav_user_actions/nav_user_actions";
+import { ChevronRight } from "lucide-react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const SidebarComponent = () => {
   return (
@@ -41,25 +50,40 @@ const SidebarComponent = () => {
       <Separator className="mt-2" />
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Applications</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => {
-                {
-                  return (
-                    <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton asChild>
-                        <Link href={item.url}>
-                          <item.icon />
-                          <span>{item.title}</span>
-                        </Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  );
-                }
-              })}
-            </SidebarMenu>
-          </SidebarGroupContent>
+          <SidebarGroupLabel className="text-md font-semibold capitalize">
+            Features
+          </SidebarGroupLabel>
+          <SidebarMenu>
+            {items.map((set) => {
+              return (
+                <Collapsible key={set.main_category}>
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton tooltip={set.main_category}>
+                      {set.icon && <set.icon />}
+                      <span className="text-md capitalize font-semibold">
+                        {set.main_category}
+                      </span>
+                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      {set.sub_category.map((subItem) => {
+                        return (
+                          <SidebarMenuSubItem key={subItem.title}>
+                            <SidebarMenuSubButton>
+                              {subItem.icon && <subItem.icon />}
+                              {subItem.title}
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        );
+                      })}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </Collapsible>
+              );
+            })}
+          </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
       <Separator />

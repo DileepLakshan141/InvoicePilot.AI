@@ -1,4 +1,18 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import {
+  LayoutDashboard,
+  Home,
+  Receipt,
+  FilePlusCorner,
+  HandCoins,
+  ReceiptText,
+  Hourglass,
+  Contact,
+  UserRoundCheck,
+  ChessQueen,
+  CircleDollarSign,
+  Handshake,
+  LayoutTemplate,
+} from "lucide-react";
 
 export const company_data = {
   logo_full_url:
@@ -14,28 +28,72 @@ export const user_data = {
 
 export const items = [
   {
-    title: "Home",
-    url: "/dashboard/main",
-    icon: Home,
+    main_category: "Dashboard",
+    sub_category: [
+      {
+        title: "Home",
+        icon: Home,
+        link: "/main",
+      },
+    ],
+    icon: LayoutDashboard,
   },
   {
-    title: "Inbox",
-    url: "/dashboard/inbox",
-    icon: Inbox,
+    main_category: "Invoices",
+    sub_category: [
+      {
+        title: "Create Invoice",
+        icon: FilePlusCorner,
+        link: "/create_invoice",
+      },
+      {
+        title: "All Invoices",
+        icon: ReceiptText,
+        link: "/all_invoice",
+      },
+      {
+        title: "Paid Invoices",
+        icon: HandCoins,
+        link: "/paid_invoice",
+      },
+      {
+        title: "Unpaid Invoices",
+        icon: Hourglass,
+        link: "/unpaid_invoice",
+      },
+    ],
+    icon: Receipt,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
+    main_category: "Clients",
+    sub_category: [
+      {
+        title: "All Clients",
+        icon: UserRoundCheck,
+        link: "/all_clients",
+      },
+    ],
+    icon: Contact,
   },
   {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
+    main_category: "Business",
+    sub_category: [
+      {
+        title: "Profile",
+        icon: ChessQueen,
+        link: "/business_profile",
+      },
+      {
+        title: "Invoice Template",
+        icon: LayoutTemplate,
+        link: "/invoice_template",
+      },
+      {
+        title: "Payment Settings",
+        icon: CircleDollarSign,
+        link: "/payment_settings",
+      },
+    ],
+    icon: Handshake,
   },
 ];

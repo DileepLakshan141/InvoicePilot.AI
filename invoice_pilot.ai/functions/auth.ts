@@ -2,6 +2,8 @@
 import { LoginSchema, UserSchema } from "@/schema/user";
 import { z } from "zod";
 import { auth } from "@/utils/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 export const create_new_user = async (values: z.infer<typeof UserSchema>) => {
   const results = UserSchema.safeParse(values);
@@ -51,4 +53,30 @@ export const login_user = async (values: z.infer<typeof LoginSchema>) => {
   } else {
     return { status: "error", message: "error occurred while logging in" };
   }
+};
+
+export const logout_user = async () => {
+  const all_headers = await headers();
+  const cookie = all_headers.get("cookie") || "";
+  const response = await auth.api.signOut({
+    headers: { cookie },
+    asResponse: true,
+  });
+  if (response.status >= 200 && response.status < 300) {
+    return { status: "success", message: "Logged out successfully" };
+  } else {
+    return { status: "error", message: "Logout failed" };
+  }
+};
+
+export const check_protections = async () => {
+  const all_headers = await headers();
+  const cookie = all_headers.get("cookie") || "";
+  const session = await auth.api.getSession({ headers: { cookie } });
+
+  if (!session) {
+    redirect("/signin");
+  }
+
+  return null;
 };
