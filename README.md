@@ -1,6 +1,6 @@
 # 🚀 InvoicePilot.ai
 
-### **AI-Powered Invoice Automation & Smart Payment Reminder System**
+### **AI-Powered Invoice Automation & Smart Payment Reminder System (Ongoing Project)**
 
 InvoicePilot.ai is a modern SaaS application designed for freelancers, agencies, and small businesses to streamline their invoicing workflow.  
 Create invoices, send them instantly to clients, and let the system automatically follow up with smart reminders via **Email** and **WhatsApp**.
