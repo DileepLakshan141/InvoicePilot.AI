@@ -23,6 +23,7 @@ import { UserSchema } from "@/schema/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { create_new_user } from "@/functions/auth";
 import { toast } from "sonner";
+import Image from "next/image";
 
 const SignupPage = () => {
   const signupForm = useForm<z.infer<typeof UserSchema>>({
@@ -48,7 +49,7 @@ const SignupPage = () => {
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -56,13 +57,24 @@ const SignupPage = () => {
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
         <source src="/video_back.mp4" />
-      </video>
+      </video> */}
+
+      <div className="absolute inset-0 bg-[url('/signin_background.png')] bg-repeat -z-10 opacity-35" />
 
       {/* signup form */}
       <Card className="mx-3 w-full max-w-[500px] z-1">
         <CardContent>
-          <CardTitle className="text-2xl">Let’s Get You Started</CardTitle>
-          <CardDescription className="mt-3">
+          <Image
+            alt="invoice_pilot_logo"
+            src="/ip_logo_full.png"
+            className="block m-auto mb-3"
+            width={200}
+            height={40}
+          />
+          <CardTitle className="text-xl flex justify-center text-center">
+            Let’s Get You Started
+          </CardTitle>
+          <CardDescription className="mt-3 flex justify-center text-center">
             Welcome to InvoicePilot.ai! Let’s get to know you and your business
             so we can take the hassle out of invoicing.
           </CardDescription>

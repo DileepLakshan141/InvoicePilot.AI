@@ -24,6 +24,7 @@ import { LoginSchema } from "@/schema/user";
 import { login_user } from "@/functions/auth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const SigninPage = () => {
   const router = useRouter();
@@ -47,7 +48,7 @@ const SigninPage = () => {
 
   return (
     <div className="w-full h-screen relative flex justify-center items-center">
-      <video
+      {/* <video
         className="absolute top-0 left-0 w-full h-screen object-cover"
         loop
         autoPlay
@@ -55,13 +56,22 @@ const SigninPage = () => {
         muted
       >
         <source src="/video_back.mp4" />
-      </video>
-
+      </video> */}
+      <div className="absolute inset-0 bg-[url('/signin_background.png')] bg-repeat -z-10 opacity-35" />
       {/* login form */}
       <Card className="mx-3 w-full max-w-[500px] z-2">
         <CardContent>
-          <CardTitle className="text-2xl">Welcome Back</CardTitle>
-          <CardDescription className="mt-3">
+          <Image
+            src="/ip_logo_full.png"
+            width={200}
+            height={40}
+            className="block m-auto mb-3"
+            alt="invoice_pilot_lot"
+          />
+          <CardTitle className="text-xl flex w-full justify-center">
+            Welcome Back
+          </CardTitle>
+          <CardDescription className="mt-3 flex w-full justify-center text-center">
             Great to see you again! Sign in to access your dashboard, manage
             invoices, and stay on top of your payments with ease.
           </CardDescription>
