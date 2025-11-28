@@ -76,3 +76,5 @@ Built to be finished quickly, but impactful enough to ship as a real product.
 ---
 
 ## 📁 Project Structure (Initial Plan)
+
+The application will be implemented using the next js along with postgres sql as database from neon db. The authentication process will be implemented using better auth along with prisma ORM.
