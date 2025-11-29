@@ -44,22 +44,22 @@ export const items = [
       {
         title: "Create Invoice",
         icon: FilePlusCorner,
-        link: "/create_invoice",
+        link: "/dashboard/create_invoice",
       },
       {
         title: "All Invoices",
         icon: ReceiptText,
-        link: "/all_invoice",
+        link: "/dashboard/all_invoice",
       },
       {
         title: "Paid Invoices",
         icon: HandCoins,
-        link: "/paid_invoice",
+        link: "/dashboard/paid_invoice",
       },
       {
         title: "Unpaid Invoices",
         icon: Hourglass,
-        link: "/unpaid_invoice",
+        link: "/dashboard/unpaid_invoice",
       },
     ],
     icon: Receipt,
@@ -70,7 +70,7 @@ export const items = [
       {
         title: "All Clients",
         icon: UserRoundCheck,
-        link: "/all_clients",
+        link: "/dashboard/all_clients",
       },
     ],
     icon: Contact,
@@ -81,12 +81,12 @@ export const items = [
       {
         title: "Profile",
         icon: ChessQueen,
-        link: "/business_profile",
+        link: "/dashboard/profile",
       },
       {
         title: "Invoice Template",
         icon: LayoutTemplate,
-        link: "/invoice_template",
+        link: "/dashboard/templates",
       },
       {
         title: "Payment Settings",
