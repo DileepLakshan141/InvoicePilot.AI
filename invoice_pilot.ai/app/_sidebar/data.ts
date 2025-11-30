@@ -91,7 +91,7 @@ export const items = [
       {
         title: "Payment Settings",
         icon: CircleDollarSign,
-        link: "/payment_settings",
+        link: "/dashboard/payment_settings",
       },
     ],
     icon: Handshake,
