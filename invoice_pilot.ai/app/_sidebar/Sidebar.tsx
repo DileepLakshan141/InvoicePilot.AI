@@ -71,12 +71,12 @@ const SidebarComponent = () => {
                       {set.sub_category.map((subItem) => {
                         return (
                           <SidebarMenuSubItem key={subItem.title}>
-                            <Link href={subItem.link}>
-                              <SidebarMenuSubButton>
+                            <SidebarMenuSubButton asChild>
+                              <Link href={subItem.link}>
                                 {subItem.icon && <subItem.icon />}
                                 {subItem.title}
-                              </SidebarMenuSubButton>
-                            </Link>
+                              </Link>
+                            </SidebarMenuSubButton>
                           </SidebarMenuSubItem>
                         );
                       })}

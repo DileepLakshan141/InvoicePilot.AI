@@ -1,8 +1,8 @@
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
-const BusinessPage = () => {
+const PaymentSettings = () => {
   return (
     <div className="w-full flex flex-col justify-start items-start p-4">
       {/* top stripe header */}
@@ -10,11 +10,11 @@ const BusinessPage = () => {
         <Button variant="outline" asChild className="w-8 h-8 text-3xl">
           <SidebarTrigger />
         </Button>
-        <h2 className="text-3xl font-semibold ml-3">Business Profile</h2>
+        <h2 className="text-3xl font-semibold ml-3">Payment Settings</h2>
       </div>
       <Separator className="my-4" />
     </div>
   );
 };
 
-export default BusinessPage;
+export default PaymentSettings;
